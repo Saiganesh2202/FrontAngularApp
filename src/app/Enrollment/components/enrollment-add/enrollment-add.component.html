@@ -1,0 +1,21 @@
+<form [formGroup]="enrollmentForm" (ngSubmit)="onSubmit()">
+  <label>Student:
+    <select formControlName="studentId">
+      <option value="">Select a student</option>
+      <option *ngFor="let student of studentOptions" [value]="student.id">
+        {{ student.name }}
+      </option>
+    </select>
+  </label>
+
+  <label>Course:
+    <select formControlName="courseId">
+      <option value="">Select a course</option>
+      <option *ngFor="let course of courseOptions" [value]="course.id">
+        {{ course.name }}
+      </option>
+    </select>
+  </label>
+
+  <button type="submit" [disabled]="enrollmentForm.invalid">Submit</button>
+</form>
